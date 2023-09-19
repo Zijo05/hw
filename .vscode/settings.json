@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "chrono": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "string_view": "cpp",
+        "cstddef": "cpp",
+        "random": "cpp"
     }
 }

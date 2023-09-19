@@ -1,7 +1,10 @@
-#include <iostream>
-#include <chrono>
+/*
+Neka je dat nenegativan broj n. Program treba da ispiše sumu nenegativnih brojeva koji su
+djeljivi sa 3 ili sa 5. (for petlje, kondicionali)
+*/
 
-using namespace std::chrono;
+#include <iostream>
+
 using namespace std;
 
 int main() {
