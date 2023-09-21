@@ -24,21 +24,10 @@ int main() {
     cout << "Unesi cijeli broj: ";
     cin >> n;
 
-    if (n <= 1 )
-        cout << "Uneseni broj nije prost i prije njega nema prostih brojeva.";
-    else if (n == 2)
-        cout << "Uneseni broj je prost, a od 0 do unesenog broja nema prostih brojeva.";
-    else if (n == 3)
-        cout << "Uneseni broj je prost, a od 0 do unesenog broja ima prost broj. Taj broj je: 2";
-    else if(isPrime(n)){
-        cout << "Uneseni broj je prost, a od 0 do unesenog broja ima prostih brojeva. Ti brojevi su: ";
-        for (int j = 2; j<n; j++){
-            if(isPrime(j))
-                cout << j << " || ";
-        }
+    for (int i = 0; i <= n; i++){
+        if(isPrime(i))
+            cout << i << endl;
     }
-    else
-        cout << "Uneseni broj nije prost i prije njega nema prostih brojeva.";
 
     return 0;
 }

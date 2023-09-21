@@ -36,8 +36,6 @@ int main() {
                 max = udaljenost;
             udaljenost = 0;
         }
-        
-        cout << "arr["<<i<<"]="<<arr[i]<<" || udaljenost="<<udaljenost<<" || min="<<min<<" || max="<<max<<endl;
     }
 
     if(min == 99)

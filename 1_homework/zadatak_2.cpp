@@ -8,15 +8,15 @@ djeljivi sa 3 ili sa 5. (for petlje, kondicionali)
 using namespace std;
 
 int main() {
-    long long int sum=0, n;
-	cin>>n;
+    long long int sum = 0, n;
+	cin >> n;
 
-    for(long long int i=0;i<=n;i++){
-        if(i%3==0||i%5==0)
-            sum+=i;
+    for(long long int i = 0; i <= n; i++){
+        if(i % 3 == 0 || i % 5 == 0)
+            sum += i;
         }
 
-    cout<<sum;
+    cout << sum;
     
     return 0;
 }
