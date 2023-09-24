@@ -10,14 +10,12 @@ zadnjeg unosa ispisuje niz kvadriranih brojeva.
 using namespace std;
 
 int* kvadriraj(int* niz, int n){
-    int arr2[n];
+    int* ptr = niz;
+    
     for(int i=0; i < n; i++){
-        arr2[i] = niz[i] * niz[i];
+        niz[i] = niz[i] * niz[i];
     }
-
-    for(int i=0; i < n; i++){
-        cout << arr2[i] << ", ";
-    }
+    return ptr;
 }
 
 int main() {
@@ -28,7 +26,13 @@ int main() {
         cin>>arr[i];
     }
 
-    cout << "Niz kvadriranih brojeva: " << kvadriraj(arr, n);
+    int* ptr = kvadriraj(arr, n);
+
+    cout << "Niz kvadriran: " << endl;
+    for(int i=0; i < n; i++){
+        cout << ptr[i] << endl;
+    }
+    
 
     return 0;
 }
