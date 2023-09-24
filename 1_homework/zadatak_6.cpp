@@ -9,8 +9,30 @@ to jeste n-ti Fibonaccijev broj. (Nije potrebna rekurzija za izradu ovog zadatka
 
 using namespace std;
 
-int main() {
-    //ne razumijem postavku???
+long long int fib(int n) {
+    long long int previous = 0;
+    long long int current = 1;
+    long long int temp;
 
-    return 0;
+    for(int i = 0; i < n; i++) {
+        temp = previous;
+        cout << temp << " = " << previous << endl;
+        previous = current;
+        cout << previous << " = " << current << endl;
+        cout << current << " = " << current << " + " << temp << endl;
+        current += temp;
+        cout << "________" << endl;
+    }
+
+    return previous;
+}
+
+int main() {
+	int n;
+	cout << "Enter number: ";
+	cin >> n;
+	cout << endl;
+	cout << "Fibonacci of " << n << " is: " << fib(n) << endl;
+
+	return 0;
 }

@@ -4,6 +4,7 @@
         "iostream": "cpp",
         "string_view": "cpp",
         "cstddef": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "ostream": "cpp"
     }
 }
