@@ -6,7 +6,6 @@ zadnjeg unosa ispisuje niz kvadriranih brojeva.
 */
 
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 
