@@ -15,8 +15,9 @@ int* kvadriraj(int* niz, int n){
     for(int i=0; i < n; i++){
         arr2[i] = niz[i] * niz[i];
     }
+
     for(int i=0; i < n; i++){
-        cout << arr2[i] << endl;
+        cout << arr2[i] << ", ";
     }
 }
 
@@ -28,7 +29,7 @@ int main() {
         cin>>arr[i];
     }
 
-    kvadriraj(arr, n);
+    cout << "Niz kvadriranih brojeva: " << kvadriraj(arr, n);
 
     return 0;
 }
