@@ -19,16 +19,17 @@ using namespace std;
 int* union_arr(int* arr_1, int size_1, int* arr_2, int size_2){
     int count = 0;
     int* arr = new int[size_1 + size_2];
-
     bool postoji = false;
+
     for(int i = 0; i < size_1; i++){
         arr[i] = arr_1[i];
         count++;
     }
+
     for(int i = 0; i < size_2; i++){
         for (int j = 0; j < count; j++)
         {
-            if(arr_2[i] == arr[j]){ // {1, 2} {3, 4, 5}
+            if(arr_2[i] == arr[j]){
                 postoji = true;
                 break;
             }
@@ -47,14 +48,16 @@ int union_arr_size(int* arr_1, int size_1, int* arr_2, int size_2){
     int count = 0;
     int arr[size_1 + size_2];
     bool postoji = false;
+
     for(int i = 0; i < size_1; i++){
         arr[i] = arr_1[i];
         count++;
     }
+    
     for(int i = 0; i < size_2; i++){
         for (int j = 0; j < count; j++)
         {
-            if(arr_2[i] == arr[j]){ // {1, 2} {3, 4, 5}
+            if(arr_2[i] == arr[j]){
                 postoji = true;
                 break;
             }
@@ -75,11 +78,11 @@ int main() {
 
     int arr_1[n], arr_2[m];
 
-    for(int i=0; i < n; i++){
+    for(int i = 0; i < n; i++){
         cout << "Prvi skup - element [" << i + 1 << "] = ";
         cin >> arr_1[i];
     }
-    for(int i=0; i < m; i++){
+    for(int i = 0; i < m; i++){
         cout << "Drugi skup - element [" << i + 1 << "] = ";
         cin >> arr_2[i];
     }
