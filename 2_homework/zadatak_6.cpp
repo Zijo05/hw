@@ -9,8 +9,6 @@ jeste, ako ste spasili rezultat unije u union_array, onda ispišite samo
 union_array[union_size/2]).
 */
 
-// int arrSize = sizeof(arr)/sizeof(arr[0]);
-
 #include <iostream>
 #include <vector>
 
