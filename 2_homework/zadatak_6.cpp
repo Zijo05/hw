@@ -10,11 +10,10 @@ union_array[union_size/2]).
 */
 
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-int* union_arr(int* arr_1, int size_1, int* arr_2, int size_2){
+int* union_arr(int* arr_1, int size_1, int* arr_2, int size_2){    // izračun unije dva skupa
     int count = 0;
     int* arr = new int[size_1 + size_2];
     bool postoji = false;
@@ -42,7 +41,7 @@ int* union_arr(int* arr_1, int size_1, int* arr_2, int size_2){
     return arr;
 }
 
-int union_arr_size(int* arr_1, int size_1, int* arr_2, int size_2){
+int union_arr_size(int* arr_1, int size_1, int* arr_2, int size_2){    // izračun veličine unije dva skupa
     int count = 0;
     int arr[size_1 + size_2];
     bool postoji = false;
@@ -76,23 +75,24 @@ int main() {
 
     int arr_1[n], arr_2[m];
 
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++){    // unos prvog skupa
         cout << "Prvi skup - element [" << i + 1 << "] = ";
         cin >> arr_1[i];
     }
-    for(int i = 0; i < m; i++){
+    for(int i = 0; i < m; i++){    // unos drugog skupa
         cout << "Drugi skup - element [" << i + 1 << "] = ";
         cin >> arr_2[i];
     }
 
-    int* arrU = union_arr(arr_1, n, arr_2, m);
-    int union_size = union_arr_size(arr_1, n, arr_2, m);
-    cout << "Unija dva unesena skupa: " << endl;
+    int* arrU = union_arr(arr_1, n, arr_2, m);    // pohranjivanje pointera za dinamički niz unije
+    int union_size = union_arr_size(arr_1, n, arr_2, m);    // pohranjivanje veličine niza unije
+
+    cout << "Unija dva unesena skupa: " << endl;    // ispis unije
     for (int i = 0; i < union_size; i++){
         cout << arrU[i] << endl;
     }
 
-    cout << "Srednji element unije skupova je: " << arrU[union_size/2];
+    cout << "Srednji element unije skupova je: " << arrU[union_size/2];    // ispis srednje elementa niza unije
 
     return 0;
 }
