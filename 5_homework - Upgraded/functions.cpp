@@ -21,6 +21,7 @@ void load_files(Library &MyLibrary){
             book.releaseYear = stoi(entry[2]);
             book.ISBN = entry[3];
             MyLibrary.Shelves.at(0).Books.push_back(book);
+            MyLibrary.Shelves.at(0).genre = "Fantasy";
         }
     }
     file.close();
@@ -36,6 +37,7 @@ void load_files(Library &MyLibrary){
             book.releaseYear = stoi(entry[2]);
             book.ISBN = entry[3];
             MyLibrary.Shelves.at(1).Books.push_back(book);
+            MyLibrary.Shelves.at(1).genre = "Science Fictions";
         }
     }
     file.close();
@@ -51,6 +53,7 @@ void load_files(Library &MyLibrary){
             book.releaseYear = stoi(entry[2]);
             book.ISBN = entry[3];
             MyLibrary.Shelves.at(2).Books.push_back(book);
+            MyLibrary.Shelves.at(2).genre = "Programming";
         }
     }
     file.close();
@@ -115,6 +118,7 @@ void switch_checked_out_status(Book &book){
 }
 
 void list_shelf(Shelf &shelf){
+    
     for (int i = 0; i <  shelf.Books.size(); i++){
         cout << endl << i + 1 << ". Book:";
         cout << "\nTitle:" << shelf.Books.at(i).title;
