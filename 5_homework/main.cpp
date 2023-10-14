@@ -73,7 +73,7 @@ int main() {
                 switch (option){
                 case (1):
                     cin >> noBook;
-                    if (checked_out(MyLibrary.Shelves.at(genre-1).Books.at(noBook-1))){
+                    if (MyLibrary.Shelves.at(genre-1).Books.at(noBook-1).checkedOut){
                         system("cls");
                         cout << "Book already borrowed." << endl;
                         system("pause");
@@ -87,7 +87,7 @@ int main() {
                     break;
                 case (2):
                     cin >> noBook;
-                    if (checked_out(MyLibrary.Shelves.at(genre-1).Books.at(noBook-1))){
+                    if (MyLibrary.Shelves.at(genre-1).Books.at(noBook-1).checkedOut){
                         switch_checked_out_status(MyLibrary.Shelves.at(genre-1).Books.at(noBook-1));
                         system("cls");
                         cout << "Book successfully returned." << endl;

@@ -12,6 +12,7 @@ struct Book
     string author;
     int releaseYear;
     string ISBN;
+    bool checkedOut = false;
 };
 
 struct Shelf
@@ -27,7 +28,6 @@ struct Library
 
 void load_files(Library &MyLibrary);
 bool is_ISBN_valid(string &isbn);
-bool checked_out(Book &book);
 void switch_checked_out_status(Book &book);
 void list_shelf(Shelf &shelf);
 

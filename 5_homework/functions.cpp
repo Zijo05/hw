@@ -27,7 +27,6 @@ void load_files(Library &MyLibrary){
             MyLibrary.Shelves.at(i).genre = genres[i];
         }   
         }
-        cout << "i: " << i;
         file.close();
     }
     system("pause");
@@ -63,38 +62,21 @@ bool is_ISBN_valid(string &isbn) {
     return false;
 }
 
-bool checked_out(Book &book){
-    if(book.title[0] == 'X' && book.title[1] == '_')
-        return true;
-    
-    return false;
-}
 
 void switch_checked_out_status(Book &book){
-    if(checked_out(book)){
-        string temp;
-        for (int i = 2; i < book.title.size(); i++){
-            temp.push_back(book.title[i]);
-        }
-
-        book.title = temp;
-    }
-
-    else{
-        string temp = "X_";
-        for (int i = 0; i < book.title.size(); i++){
-            temp.push_back(book.title[i]);
-        }
-
-        book.title = temp;
-    }
+    if(book.checkedOut)
+        book.checkedOut = false;
+    else
+        book.checkedOut = true;
 }
 
 void list_shelf(Shelf &shelf){
     
     for (int i = 0; i <  shelf.Books.size(); i++){
         cout << endl << i + 1 << ". Book:";
-        cout << "\nTitle:" << shelf.Books.at(i).title;
+        string temp;
+        (shelf.Books.at(i).checkedOut) ? temp = "X_" : temp = "";
+        cout << "\nTitle: " << temp << shelf.Books.at(i).title;
         cout << "\nAuthor: " << shelf.Books.at(i).author;
         cout << "\nYear of release: " << shelf.Books.at(i).releaseYear;
         cout << "\nISBN: " << shelf.Books.at(i).ISBN;
