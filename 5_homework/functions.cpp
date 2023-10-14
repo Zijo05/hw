@@ -29,7 +29,6 @@ void load_files(Library &MyLibrary){
         }
         file.close();
     }
-    system("pause");
 }
 
 
