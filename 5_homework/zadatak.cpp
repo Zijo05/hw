@@ -23,6 +23,58 @@ struct Library
 };
 
 
+void load_files(Library &MyLibrary){
+    fstream file;
+    file.open("fantasy.txt", ios::in);
+    int i=0;
+    string entry[4];
+    while (getline(file, entry[i])) {
+        i++;
+        if(i == 4){
+            i = 0;
+            Book book;
+            book.title = entry[0];
+            book.author = entry[1];
+            book.releaseYear = stoi(entry[2]);
+            book.ISBN = entry[3];
+            MyLibrary.Shelves.at(0).Books.push_back(book);
+        }
+    }
+    file.close();
+
+    file.open("scifi.txt", ios::in);
+    while (getline(file, entry[i])) {
+        i++;
+        if(i == 4){
+            i = 0;
+            Book book;
+            book.title = entry[0];
+            book.author = entry[1];
+            book.releaseYear = stoi(entry[2]);
+            book.ISBN = entry[3];
+            MyLibrary.Shelves.at(1).Books.push_back(book);
+        }
+    }
+    file.close();
+
+    file.open("programming.txt", ios::in);
+    while (getline(file, entry[i])) {
+        i++;
+        if(i == 4){
+            i = 0;
+            Book book;
+            book.title = entry[0];
+            book.author = entry[1];
+            book.releaseYear = stoi(entry[2]);
+            book.ISBN = entry[3];
+            MyLibrary.Shelves.at(2).Books.push_back(book);
+        }
+    }
+    file.close();
+
+}
+
+
 bool is_ISBN_valid(string &isbn) {
     if (isbn.size() != 13)
         return false;
@@ -52,14 +104,14 @@ bool is_ISBN_valid(string &isbn) {
     return false;
 }
 
-bool checked_out(Book& book){
+bool checked_out(Book &book){
     if(book.title[0] == 'X' && book.title[1] == '_')
         return true;
     
     return false;
 }
 
-void switch_checked_out_status(Book& book){
+void switch_checked_out_status(Book &book){
     if(checked_out(book)){
         string temp;
         for (int i = 2; i < book.title.size(); i++){
@@ -79,7 +131,7 @@ void switch_checked_out_status(Book& book){
     }
 }
 
-void list_shelf(Shelf& shelf){
+void list_shelf(Shelf &shelf){
     for (int i = 0; i <  shelf.Books.size(); i++){
         cout << endl << i + 1 << ". Book:";
         cout << "\nTitle:" << shelf.Books.at(i).title;
@@ -103,54 +155,7 @@ int main() {
     MyLibrary.Shelves.push_back(SciFi);
     MyLibrary.Shelves.push_back(Programming);
 
-    fstream file;
-        file.open("fantasy.txt", ios::in);
-        int i=0;
-        string entry[4];
-        while (getline(file, entry[i])) {
-            i++;
-            if(i == 4){
-                i = 0;
-                Book book;
-                book.title = entry[0];
-                book.author = entry[1];
-                book.releaseYear = stoi(entry[2]);
-                book.ISBN = entry[3];
-                MyLibrary.Shelves.at(0).Books.push_back(book);
-            }
-        }
-        file.close();
-
-        file.open("scifi.txt", ios::in);
-        while (getline(file, entry[i])) {
-            i++;
-            if(i == 4){
-                i = 0;
-                Book book;
-                book.title = entry[0];
-                book.author = entry[1];
-                book.releaseYear = stoi(entry[2]);
-                book.ISBN = entry[3];
-                MyLibrary.Shelves.at(1).Books.push_back(book);
-            }
-        }
-        file.close();
-
-        file.open("programming.txt", ios::in);
-        while (getline(file, entry[i])) {
-            i++;
-            if(i == 4){
-                i = 0;
-                Book book;
-                book.title = entry[0];
-                book.author = entry[1];
-                book.releaseYear = stoi(entry[2]);
-                book.ISBN = entry[3];
-                MyLibrary.Shelves.at(2).Books.push_back(book);
-            }
-        }
-        file.close();
-
+    load_files(MyLibrary);
 
     while(1){
         system("cls");
@@ -169,11 +174,11 @@ int main() {
             list_shelf(MyLibrary.Shelves.at(0));
             cout << "\n----------------------------------------------------------------------------------------------------------";
             cout << "\n----------------------------------------------------------------------------------------------------------";
-            cout << "\n\nScience fiction books: ";
+            cout << "\nScience fiction books: ";
             list_shelf(MyLibrary.Shelves.at(1));
             cout << "\n----------------------------------------------------------------------------------------------------------";
             cout << "\n----------------------------------------------------------------------------------------------------------";
-            cout << "\n\nProgramming books: ";
+            cout << "\nProgramming books: ";
             list_shelf(MyLibrary.Shelves.at(2));
             system("pause");
         }
