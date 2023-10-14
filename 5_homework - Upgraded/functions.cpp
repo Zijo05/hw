@@ -8,56 +8,29 @@ using namespace std;
 
 void load_files(Library &MyLibrary){
     fstream file;
-    file.open("data_files/fantasy.txt", ios::in);
-    int i=0;
-    string entry[4];
-    while (getline(file, entry[i])) {
-        i++;
-        if(i == 4){
-            i = 0;
+    string files[3] = {"data_files/fantasy.txt", "data_files/scifi.txt", "data_files/programming.txt"};
+    string genres[3] = {"Fantasy", "Science Fiction", "Programming"};
+    for (int i = 0; i < 3; i++){
+        file.open(files[i], ios::in);
+        int j=0;
+        string entry[4];
+        while (getline(file, entry[j])) {
+        j++;
+        if(j == 4){
+            j = 0;
             Book book;
             book.title = entry[0];
             book.author = entry[1];
             book.releaseYear = stoi(entry[2]);
             book.ISBN = entry[3];
-            MyLibrary.Shelves.at(0).Books.push_back(book);
-            MyLibrary.Shelves.at(0).genre = "Fantasy";
+            MyLibrary.Shelves.at(i).Books.push_back(book);
+            MyLibrary.Shelves.at(i).genre = genres[i];
+        }   
         }
+        cout << "i: " << i;
+        file.close();
     }
-    file.close();
-
-    file.open("data_files/scifi.txt", ios::in);
-    while (getline(file, entry[i])) {
-        i++;
-        if(i == 4){
-            i = 0;
-            Book book;
-            book.title = entry[0];
-            book.author = entry[1];
-            book.releaseYear = stoi(entry[2]);
-            book.ISBN = entry[3];
-            MyLibrary.Shelves.at(1).Books.push_back(book);
-            MyLibrary.Shelves.at(1).genre = "Science Fictions";
-        }
-    }
-    file.close();
-
-    file.open("data_files/programming.txt", ios::in);
-    while (getline(file, entry[i])) {
-        i++;
-        if(i == 4){
-            i = 0;
-            Book book;
-            book.title = entry[0];
-            book.author = entry[1];
-            book.releaseYear = stoi(entry[2]);
-            book.ISBN = entry[3];
-            MyLibrary.Shelves.at(2).Books.push_back(book);
-            MyLibrary.Shelves.at(2).genre = "Programming";
-        }
-    }
-    file.close();
-
+    system("pause");
 }
 
 

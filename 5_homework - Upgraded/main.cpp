@@ -33,16 +33,13 @@ int main() {
 
         if (t == 1){
             system("cls");
-            cout << "Fantasy books: ";
-            list_shelf(MyLibrary.Shelves.at(0));
-            cout << "\n----------------------------------------------------------------------------------------------------------";
-            cout << "\n----------------------------------------------------------------------------------------------------------";
-            cout << "\nScience fiction books: ";
-            list_shelf(MyLibrary.Shelves.at(1));
-            cout << "\n----------------------------------------------------------------------------------------------------------";
-            cout << "\n----------------------------------------------------------------------------------------------------------";
-            cout << "\nProgramming books: ";
-            list_shelf(MyLibrary.Shelves.at(2));
+            for (int i = 0; i < MyLibrary.Shelves.size(); i++){
+                cout << endl << MyLibrary.Shelves.at(i).genre;
+                cout << "\n----------------------------------------------------------------------------------------------------------";
+                list_shelf(MyLibrary.Shelves.at(i));
+                cout << "\n----------------------------------------------------------------------------------------------------------";
+                cout << "\n----------------------------------------------------------------------------------------------------------";
+            }
             system("pause");
         }
         
@@ -91,6 +88,7 @@ int main() {
                 case (2):
                     cin >> noBook;
                     if (checked_out(MyLibrary.Shelves.at(genre-1).Books.at(noBook-1))){
+                        switch_checked_out_status(MyLibrary.Shelves.at(genre-1).Books.at(noBook-1));
                         system("cls");
                         cout << "Book successfully returned." << endl;
                         system("pause");
@@ -111,6 +109,7 @@ int main() {
         if (t == 3){
             cout << "Enter new genre name: ";
             string genre;
+            cin.ignore();
             getline(cin, genre);
 
             cout << "You have to asign a book to new genre: " << endl;
@@ -133,7 +132,36 @@ int main() {
         }
 
         if (t == 4){
-            
+            system("cls");
+            int counter = 1;
+            cout << "\n----------------------------------------------------------------------------------------------------------";
+            for (int i = 0; i < MyLibrary.Shelves.size(); i++){
+                cout << "\n     " << i + 1 << ". " << MyLibrary.Shelves.at(i).genre;
+                counter++;
+            }
+            cout << "\n     " << counter <<". Exit";
+            cout << "\n----------------------------------------------------------------------------------------------------------";
+            cout << "\n     Choose genre of your new book: ";
+            int genre;
+            cin >> genre;
+
+            if (genre < counter){
+                system("cls");
+                cout << "Enter book's properties: " << endl;
+                string title, author, ISBN;
+                int releaseYear;
+                cout << "Enter book's title: ";
+                cin.ignore();
+                getline(cin, title);
+                cout << "Enter book's author: ";
+                getline(cin, author);
+                cout << "Enter book's year of release: ";
+                cin >> releaseYear;
+                cout << "Enter book's ISBN-13: ";
+                cin >> ISBN;
+
+                MyLibrary.Shelves.at(genre-1).Books.push_back({title, author, releaseYear, ISBN});
+            }
         }
 
         if (t == 5){
