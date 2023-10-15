@@ -13,32 +13,45 @@ union_array[union_size/2]).
 
 using namespace std;
 
-int* union_arr(int* arr_1, int size_1, int* arr_2, int size_2){    // izračun unije dva skupa
-    int count = 0;
-    int* arr = new int[size_1 + size_2];
+int* union_arr(int* arr_1, int size_1, int* arr_2, int size_2){
+    int* arr_union = new int[size_1 + size_2];
+
+    int count = 1;
     bool postoji = false;
 
-    for(int i = 0; i < size_1; i++){
-        arr[i] = arr_1[i];
-        count++;
-    }
+    arr_union[0] = arr_1[0];
 
-    for(int i = 0; i < size_2; i++){
+    for(int i = 1; i < size_1; i++){
         for (int j = 0; j < count; j++)
         {
-            if(arr_2[i] == arr[j]){
+            if(arr_1[i] == arr_union[j]){
                 postoji = true;
                 break;
             }
         }
         if(!postoji){
-            arr[count] = arr_2[i];
+            arr_union[count] = arr_1[i];
             count++;
         }
         postoji = false;
     }
 
-    return arr;
+    for(int i = 0; i < size_2; i++){
+        for (int j = 0; j < count; j++)
+        {
+            if(arr_2[i] == arr_union[j]){
+                postoji = true;
+                break;
+            }
+        }
+        if(!postoji){
+            arr_union[count] = arr_2[i];
+            count++;
+        }
+        postoji = false;
+    }
+
+    return arr_union;
 }
 
 int union_arr_size(int* arr_1, int size_1, int* arr_2, int size_2){    // izračun veličine unije dva skupa
@@ -93,6 +106,8 @@ int main() {
     }
 
     cout << "Srednji element unije skupova je: " << arrU[union_size/2];    // ispis srednje elementa niza unije
+
+    delete [] arrU;
 
     return 0;
 }

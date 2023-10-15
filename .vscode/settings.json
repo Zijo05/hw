@@ -12,6 +12,8 @@
         "string": "cpp",
         "iosfwd": "cpp",
         "array": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "algorithm": "cpp",
+        "new": "cpp"
     }
 }
