@@ -57,10 +57,10 @@ int main() {
         cout << "Unesi barkodove: " << endl;
         int barkod = 0;
         int broj_barkodova = 8;
-        int broj_unesenih_artikala;
+        int broj_unesenih_artikala = 0;
         int* barkodovi = new int[broj_barkodova];
         double novac_za_vratiti = 0;
-        for (int i = 0; barkod >= 0;) {
+        while (barkod >= 0) {
             if (barkod < broj_artikala) {
                 cin >> barkod;
 
@@ -68,9 +68,9 @@ int main() {
                     novac_za_vratiti += flase[barkod].cijena * 0.1;
 
                 if (barkod >= 0 && barkod < broj_artikala) {
-                    barkodovi[i] = barkod;
+                    barkodovi[broj_unesenih_artikala] = barkod;
                     barkod = 0;
-                    i++;
+                    broj_unesenih_artikala++;
                 }
             }
 
@@ -79,13 +79,14 @@ int main() {
                 barkod = 0;
             }
 
-            if (i == broj_barkodova) {
+            if (broj_unesenih_artikala == broj_barkodova) {
                 int* temp = barkodovi;
                 broj_barkodova *= 2;
                 barkodovi = new int [broj_barkodova];
-                barkodovi = temp;
+                for (int i = 0; i < broj_barkodova / 2; i++)
+                    barkodovi[i] = temp[i];
+                delete[] temp;
             }
-            broj_unesenih_artikala = i;
         }
 
         system("cls");
