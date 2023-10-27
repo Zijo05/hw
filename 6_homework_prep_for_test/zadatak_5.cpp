@@ -42,7 +42,7 @@ int main() {
     cin >> broj_artikala;
     system("cls");
 
-    Flasa flase[broj_artikala];
+    Flasa* flase = new Flasa[broj_artikala];
 
     for (int i = 0; i < broj_artikala; i++) {
         cout << "Unesi " << i + 1 << ". flasu: \n";
