@@ -15,11 +15,15 @@ int main() {
     cin >> *a;
     cout << "Unesi b: ";
     cin >> *b;
-    
+
+    swap(*a, *b);
+
+    /*
     int temp;
     temp = *a;
     *a = *b;
     *b = temp;
+    */
 
     cout << "Zamjenjene vrijednosti su: " << endl;
     cout << "a: " << *a << endl;
