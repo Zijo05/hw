@@ -7,22 +7,23 @@ using namespace std;
 
 bool is_prime(int number) {
     if (number <= 1)
-        return false;
-    for (int i = 2; i <= sqrt(number); i++) {
+        return 0;
+    for (int i = 2; i <= sqrt(number); i++)
         if (number % i == 0)
-            return false;
-    }
-    return true;
+            return 0;
+    return 1;
 }
 
 bool is_circular_prime(int number) {
-    if(!is_prime(number)) return 0;
+    if(!is_prime(number)) 
+        return 0;
 
     int number_length = to_string(number).length();
 
     for(int i = 1; i < number_length; i++) {
         number = number % int(pow(10, number_length - 1)) * 10 + number / int(pow(10, number_length - 1));
-        if(!is_prime(number)) return 0;
+        if(!is_prime(number)) 
+            return 0;
     }
     return 1;
 }

@@ -14,12 +14,11 @@ int main()
     for(a = 1; a < n; a++){
         for(b = a+1; b < n; b++){
             c = sqrt( pow(a, 2) + pow(b, 2) );
-            if(a + b + c == 1000){
+            if(a + b + c == 1000)
                 break;
-            }
         }
         if(a + b + c == 1000)
-                break;
+            break;
     }
 
     cout << "Pythagorean triplet is: " << a << "^2 + " << b << "^2 = " << c << "^2" << endl;
