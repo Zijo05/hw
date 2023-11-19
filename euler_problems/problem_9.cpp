@@ -14,7 +14,6 @@ int main()
                 cout << "Pythagorean triplet is: " << a << "^2 + " << b << "^2 = " << c << "^2" << endl;
                 cout << "Product abc is: " << a * b * c;
                 return 0;
-
             }
         }
     }
