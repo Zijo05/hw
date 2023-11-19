@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool isPandigital(int a, int b, int product) {
+bool is_pandigital(int a, int b, int product) {
     string all_numbers = to_string(a) + to_string(b) + to_string(product);
     sort(all_numbers.begin(), all_numbers.end());
     return all_numbers == "123456789";
@@ -18,7 +18,7 @@ int main() {
     for(int multiplicand = 10; multiplicand < 100; multiplicand++) {
         for(int multiplier = 100; multiplier < 1000; multiplier++) {
             int product = multiplicand * multiplier;
-            if(isPandigital(multiplicand, multiplier, product)) {
+            if(is_pandigital(multiplicand, multiplier, product)) {
                 cout << multiplicand << " * " << multiplier << " = " << product << endl;
                 sum += product;
             }
