@@ -89,5 +89,7 @@ class Sudoku:
                 print("\nRiješen sudoku: ")
                 print(self)
                 exit()
-                
+        
+        if 0 not in [broj for red in igraca_ploca.ploca for broj in red]:
+            print("Uspješno ste riješili ovaj sudoku izazov!\nČestitam!")
         return self
