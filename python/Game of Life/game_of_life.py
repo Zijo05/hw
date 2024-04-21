@@ -74,7 +74,3 @@ class GameOfLife:
                 print(f"Epoch: {epoch}")
                 print(self)
                 print("Game Stopped!")
-                
-game = GameOfLife()
-
-game.play_game()

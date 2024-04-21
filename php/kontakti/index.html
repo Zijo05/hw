@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ba">
+<head>
+    <title>Kontaktirajte nas</title>
+    <style>
+        .greska {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Kontaktirajte nas</h2>
+    <form action="kod.php" method="POST">
+        <label for="ime">Ime:</label><br>
+        <input type="text" id="ime" name="ime" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="poruka">Poruka:</label><br>
+        <textarea id="poruka" name="poruka" rows="4" required></textarea><br><br>
+        <input type="submit" name="submit_form" value="Submit">
+    </form>
+
+    <!-- "Go Back" button for Display Contacts page -->
+    <form action="kod.php" method="GET">
+        <input type="hidden" name="prikazi_kontakte" value="true">
+        <input type="submit" value="Prikazi sve kontakte">
+    </form>
+</body>
+</html>
